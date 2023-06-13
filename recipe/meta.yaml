@@ -1,6 +1,6 @@
 {% set goname = "github.com/go-task/task" %}
 {% set name = "go-task" %}
-{% set version = "3.24.0" %}
+{% set version = "3.26.0" %}
 
 {% set pkg_src = ('src/'+goname).replace("/",os.sep) %}
 
@@ -11,7 +11,7 @@ package:
 source:
   - folder: {{ pkg_src }}
     url: https://{{ goname }}/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: e1ab3c92299ad5741b8b0e9dc18593db80efaca449b8ccc318a6ff1848b44338
+    sha256: f27bb58235af96e49ab5cd9b3baec6ade0e5053b63a3c77ca7c673b0f8f3bd28
 
 build:
   number: 0
@@ -39,8 +39,8 @@ about:
   license: MIT
   license_family: MIT
   license_file:
-    - '{{ pkg_src }}/LICENSE'
-    - '{{ pkg_src }}/library_licenses/'
+    - {{ pkg_src }}/LICENSE
+    - {{ pkg_src }}/library_licenses/
   doc_url: https://taskfile.dev/
   dev_url: https://github.com/go-task/task
 
