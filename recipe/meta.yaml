@@ -1,6 +1,6 @@
 {% set goname = "github.com/go-task/task" %}
 {% set name = "go-task" %}
-{% set version = "3.30.0" %}
+{% set version = "3.30.1" %}
 
 {% set pkg_src = ('src/'+goname).replace("/",os.sep) %}
 
@@ -11,7 +11,7 @@ package:
 source:
   - folder: {{ pkg_src }}
     url: https://{{ goname }}/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: e949fba7495285a4d1fa028b055068bbe98d1fa6ebcf462d922031ddb94613fe
+    sha256: 2ea7ade74a7007766412d905fbbff91676ee2e4fa5af0e615dfa6c8bd843482c
 
 build:
   number: 0
