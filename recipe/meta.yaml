@@ -14,7 +14,7 @@ source:
     sha256: 189f3b98ed6b15290d4fd4dbab687c87de268b5c9f2f1c93a7c02710da062785
 
 build:
-  number: 0
+  number: 1
   script:
     - pushd {{ pkg_src }}
     - go install -v -ldflags="-w -s -X main.version=conda-forge" ./cmd/task
