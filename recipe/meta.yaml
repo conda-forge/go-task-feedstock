@@ -17,7 +17,8 @@ build:
   number: 1
   script:
     - pushd {{ pkg_src }}
-    - go install -v -ldflags="-w -s -X main.version=conda-forge" ./cmd/task
+    - go install -v -ldflags="-w -s -X main.version=conda-forge" ./cmd/task  # [win]
+    - go build -v -ldflags="-w -s -X main.version=conda-forge" -o $PREFIX/bin/task ./cmd/task  # [not win]
     - go-licenses save "." --save_path "library_licenses"
 
 requirements:
