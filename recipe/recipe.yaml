@@ -16,7 +16,7 @@ source:
 build:
   number: 0
   script:
-    - pushd {{ pkg_src }}
+    - pushd '${{ pkg_src }}'
     - if: win
       then: go install -v -ldflags="-w -s -X main.version=conda-forge" ./cmd/task
       else: go build -v -ldflags="-w -s -X main.version=conda-forge" -o $PREFIX/bin/task ./cmd/task
