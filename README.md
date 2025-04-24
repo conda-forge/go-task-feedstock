@@ -14,8 +14,7 @@ Development: https://github.com/go-task/task
 Documentation: https://taskfile.dev/
 
 Task is a task runner / build tool that aims to be simpler and easier
-to use than, for example, GNU Make.
-
+to use than, for example, GNU Make. 
 
 Current build status
 ====================
