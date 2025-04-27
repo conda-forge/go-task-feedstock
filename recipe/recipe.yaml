@@ -1,7 +1,7 @@
 context:
   goname: github.com/go-task/task
   name: go-task
-  version: 3.43.2
+  version: "3.43.3"
   pkg_src: ${{ ["src", goname] | join("/") }}
 
 package:
@@ -11,7 +11,7 @@ package:
 source:
   - target_directory: ${{ pkg_src }}
     url: https://${{ goname }}/archive/refs/tags/v${{ version }}.tar.gz
-    sha256: 41ed911af61d582e2824e2ee6ac8b1a845968b09ed188e79846557226aa96bed
+    sha256: a8ee62d92b654bec1fe22522f1a9a2d51386d9d7508bec164080083e28e99b2c
 
 build:
   number: 0
@@ -31,7 +31,7 @@ requirements:
 
 tests:
   - script:
-    - task --version
+      - task --version
 
 about:
   homepage: https://taskfile.dev/
