@@ -14,7 +14,7 @@ source:
     sha256: a8ee62d92b654bec1fe22522f1a9a2d51386d9d7508bec164080083e28e99b2c
 
 build:
-  number: 0
+  number: 1
   script:
     - pushd "${{ pkg_src }}"
     - if: win
@@ -24,9 +24,7 @@ build:
 
 requirements:
   build:
-    - ${{ compiler('go') }}
-    - ${{ stdlib('c') }}
-    - go-nocgo
+    - ${{ compiler('go-nocgo') }}
     - go-licenses
 
 tests:
