@@ -24,8 +24,8 @@ build:
     # Pixi: prevent CONDA_PREFIX from leaking into sandboxed processes
     - if: win
       then:
-        - mkdir "%PREFIX%\etc\pixi\go-task"
-        - type nul > "%PREFIX%\etc\pixi\go-task\global-ignore-conda-prefix"
+        - 'mkdir "%PREFIX%\etc\pixi\go-task"'
+        - 'type nul > "%PREFIX%\etc\pixi\go-task\global-ignore-conda-prefix"'
       else:
         - mkdir -p ${PREFIX}/etc/pixi/go-task
         - touch ${PREFIX}/etc/pixi/go-task/global-ignore-conda-prefix
