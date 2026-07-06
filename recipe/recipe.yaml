@@ -20,6 +20,7 @@ build:
     - if: win
       then: go install -v -ldflags="-w -s -X main.version=conda-forge" ./cmd/task
       else: go build -v -ldflags="-w -s -X main.version=conda-forge" -o $PREFIX/bin/task ./cmd/task
+    - go-licenses save "." --save_path "library_licenses" --ignore github.com/go-task/template
     # Pixi: prevent CONDA_PREFIX from leaking into sandboxed processes
     - if: win
       then:
