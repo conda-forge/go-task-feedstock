@@ -14,13 +14,21 @@ source:
     sha256: 54833f32465c45d222867cc89c6bc138d07c63d2b43f0512e2cdb4b2164ad87e
 
 build:
-  number: 0
+  number: 1
   script:
     - pushd "${{ pkg_src }}"
     - if: win
       then: go install -v -ldflags="-w -s -X main.version=conda-forge" ./cmd/task
       else: go build -v -ldflags="-w -s -X main.version=conda-forge" -o $PREFIX/bin/task ./cmd/task
     - go-licenses save "." --save_path "library_licenses" --ignore github.com/go-task/template --ignore github.com/alecthomas/chroma/v2
+    # Pixi: prevent CONDA_PREFIX from leaking into task command
+    - if: win
+      then:
+        - 'mkdir "%PREFIX%\etc\pixi\go-task"'
+        - 'type nul > "%PREFIX%\etc\pixi\go-task\global-ignore-conda-prefix"'
+      else:
+        - mkdir -p ${PREFIX}/etc/pixi/go-task
+        - touch ${PREFIX}/etc/pixi/go-task/global-ignore-conda-prefix
 
 requirements:
   build:
