@@ -1,7 +1,7 @@
 context:
   goname: github.com/go-task/task
   name: go-task
-  version: "3.51.1"
+  version: "3.52.0"
   pkg_src: ${{ ["src", goname] | join("/") }}
 
 package:
@@ -11,7 +11,7 @@ package:
 source:
   - target_directory: ${{ pkg_src }}
     url: https://${{ goname }}/archive/refs/tags/v${{ version }}.tar.gz
-    sha256: ee12bd4bd445df59de17d9b4376f8afb6a623facce34169479af8b0569220034
+    sha256: 54833f32465c45d222867cc89c6bc138d07c63d2b43f0512e2cdb4b2164ad87e
 
 build:
   number: 0
@@ -20,7 +20,7 @@ build:
     - if: win
       then: go install -v -ldflags="-w -s -X main.version=conda-forge" ./cmd/task
       else: go build -v -ldflags="-w -s -X main.version=conda-forge" -o $PREFIX/bin/task ./cmd/task
-    - go-licenses save "." --save_path "library_licenses" --ignore github.com/go-task/template
+    - go-licenses save "." --save_path "library_licenses" --ignore github.com/go-task/template --ignore github.com/alecthomas/chroma/v2
 
 requirements:
   build:
